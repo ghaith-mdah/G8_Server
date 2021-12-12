@@ -3,6 +3,7 @@
 	<name>G8_Server</name>
 	<comment></comment>
 	<projects>
+		<project>OCSF</project>
 	</projects>
 	<buildSpec>
 	</buildSpec>
