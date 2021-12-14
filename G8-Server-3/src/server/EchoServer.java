@@ -16,6 +16,7 @@ import gui.ServerPortFrameController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import logic.clients;
+import logic.Item;
 import logic.Order;
 import logic.Request;
 import logic.User;
@@ -35,6 +36,7 @@ import ocsf.server.*;
 public class EchoServer extends AbstractServer {
 	// Class variables *************************************************
 	SQLconnection c = new SQLconnection();
+	ArrayList<Item>items=new ArrayList<Item>();
 	// final public static int DEFAULT_PORT = 5555;
 
 	// Constructors ****************************************************
@@ -62,8 +64,9 @@ public class EchoServer extends AbstractServer {
 	public void handleMessageFromClient(Object msg, ConnectionToClient client) {
 
 		String message;// the message contains the request from client
-		message = ((Request) msg).getRequest();
-
+		String type1 = ((Request) msg).getRequest();
+		String[] arr = type1.split("\t");
+		message = arr[0];
 		/**
 		 * @author gethe
 		 * @param String message
@@ -127,6 +130,54 @@ public class EchoServer extends AbstractServer {
 				e.printStackTrace();
 			}
 			
+			break;
+		case "get resturant name":
+			String []NameAndID=SQLconnection.GetResturantNameForSupplierId((User) ((Request) msg).getObj());
+			try {
+				client.sendToClient(new Request("resturant name sent",NameAndID));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case"edit item":
+			int id=Integer.parseInt(arr[1]);
+			String status=SQLconnection.UpdateItemInMenu((Item)((Request) msg).getObj(), id);
+			try {
+				client.sendToClient(new Request("after update item	"+status,null));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case "show items in restaurant":
+			items=SQLconnection.GetItemsForRestaurantId((int)((Request) msg).getObj());
+			try {
+				client.sendToClient(new Request("res menu sent",items));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case"add item to menu":
+			int id1=Integer.parseInt(arr[1]);
+			String status1=SQLconnection.AddItemToMenu((Item)((Request) msg).getObj(), id1);
+			try {
+				client.sendToClient(new Request("after add item	"+status1,null));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case"remove item from menu":
+			int id2=Integer.parseInt(arr[1]);
+			String status2=SQLconnection.RemoveItemFromMenu((Item)((Request) msg).getObj(), id2);
+			try {
+				client.sendToClient(new Request("after add item	"+status2,null));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			break;
 		default:
 			System.out.println("Illegal Commaned");

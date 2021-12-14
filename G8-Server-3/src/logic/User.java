@@ -12,6 +12,15 @@ private String Password;
 private String email;
 private String role;
 private String lname;
+private int id;
+private String fname;
+private String phone;
+public int getId() {
+	return id;
+}
+public void setId(int id) {
+	this.id = id;
+}
 public String getEmail() {
 	return email;
 }
@@ -42,8 +51,7 @@ public String getPhone() {
 public void setPhone(String phone) {
 	this.phone = phone;
 }
-private String fname;
-private String phone;
+
 public User(String username, String password) {
 	super();
 	Username = username;

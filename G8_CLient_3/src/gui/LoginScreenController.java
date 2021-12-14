@@ -77,6 +77,7 @@ public class LoginScreenController extends Application {
 				cos.start(primaryStage);
 				break;
 			case "Supplier":
+				ConnectFormController.chat.accept(new Request("get resturant name",user1));
 				SupplierHSController sup = new SupplierHSController();
 				sup.user = user1;
 				sup.start(primaryStage);

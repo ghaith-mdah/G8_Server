@@ -6,11 +6,17 @@ package client;
 
 import ocsf.client.*;
 import ocsf.server.ConnectionToClient;
+
 import client.*;
 import common.ChatIF;
+import gui.AddItemController;
 import gui.ConnectFormController;
+import gui.EditItemController;
 import gui.EmailVerificationController;
 import gui.LoginScreenController;
+import gui.RestaurantMenuController;
+import gui.SupplierHSController;
+import logic.Item;
 import logic.Order;
 import logic.Request;
 import logic.User;
@@ -62,6 +68,7 @@ public class ChatClient extends AbstractClient {
 	 *
 	 * @param msg The message from the server.
 	 */
+	@SuppressWarnings("unchecked")
 	public void handleMessageFromServer(Object msg) {
 		awaitResponse = false;
 		String type1 = ((Request) msg).getRequest();
@@ -89,6 +96,20 @@ public class ChatClient extends AbstractClient {
 			break;
 		case "password saved":
 			System.out.print(type);
+			break;
+		case"resturant name sent":
+			String[]arr1=(String[])((Request) msg).getObj();
+			SupplierHSController.resturantName=arr1[0];
+			SupplierHSController.resturantID=Integer.parseInt(arr1[1]);
+			break;
+		case"res menu sent":
+			RestaurantMenuController.items=(ArrayList<Item>)(((Request) msg).getObj());
+			break;
+		case"after update item":
+			EditItemController.status=arr[1];
+			break;
+		case"after add item":
+			AddItemController.status=arr[1];
 			break;
 		default:
 			System.out.println("Illegal Command " + type);

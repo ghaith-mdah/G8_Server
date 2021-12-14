@@ -19,11 +19,19 @@ import logic.User;
 
 public class SupplierHSController extends Application implements Initializable{
 	static User user;
-    @FXML
+	
+	public static String resturantName;
+	
+	public static int resturantID;
+    
+	@FXML
     private Button orderlistbutton;
 
     @FXML
     private Label labelhello;
+
+    @FXML
+    private Label labelsupplierfor;
     
     @FXML
     private Button NewOrderButton;
@@ -35,8 +43,13 @@ public class SupplierHSController extends Application implements Initializable{
     private Label managername;
 
     @FXML
-    void EditMenuBtn(ActionEvent event) {
-
+    void EditMenuBtn(ActionEvent event) throws Exception {
+    	RestaurantMenuController.ResName=resturantName;
+    	ConnectFormController.chat.accept(new Request("show items in restaurant",resturantID));
+        ((Node) event.getSource()).getScene().getWindow().hide();
+        RestaurantMenuController rm=new RestaurantMenuController();
+    	Stage primaryStage=new Stage();
+        rm.start(primaryStage);
     }
 
     @FXML
@@ -71,7 +84,9 @@ public class SupplierHSController extends Application implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		
 		labelhello.setText("Hello "+ user.getFname()+" "+user.getLnaem());
+		labelsupplierfor.setText("supplier of "+resturantName);
 	}
 
 }

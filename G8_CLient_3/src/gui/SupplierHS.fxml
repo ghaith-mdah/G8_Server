@@ -109,6 +109,18 @@
                   <Image url="@../bitemeimg/logout.png" />
                </image>
             </ImageView>
+            <Label fx:id="labelsupplierfor" layoutX="17.0" layoutY="99.0" prefHeight="27.0" prefWidth="650.0" textFill="#300d9a">
+               <font>
+                  <Font name="Bauhaus 93" size="22.0" />
+               </font>
+               <effect>
+                  <InnerShadow color="#160d63">
+                     <input>
+                        <Glow />
+                     </input>
+                  </InnerShadow>
+               </effect>
+            </Label>
          </children>
     </AnchorPane>
   </children>
