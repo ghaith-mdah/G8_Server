@@ -4,48 +4,55 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.EditItemController">
    <children>
-      <Label layoutX="24.0" layoutY="28.0" prefHeight="46.0" prefWidth="152.0" text="Edit Item:">
+      <ImageView fitHeight="509.0" fitWidth="612.0" layoutX="-4.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../bitemeimg/menu%20background.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="79.0" layoutY="29.0" prefHeight="46.0" prefWidth="152.0" text="Edit Item:" textFill="#ffe2e2">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="113.0" prefHeight="46.0" prefWidth="66.0" text="ID :">
+      <Label layoutX="52.0" layoutY="113.0" prefHeight="46.0" prefWidth="66.0" text="ID :" textFill="#ffe2e2">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="172.0" prefHeight="46.0" prefWidth="66.0" text="Name :">
+      <Label layoutX="52.0" layoutY="172.0" prefHeight="46.0" prefWidth="66.0" text="Name :" textFill="#ffe2e2">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="238.0" prefHeight="46.0" prefWidth="66.0" text="Type :">
+      <Label layoutX="52.0" layoutY="238.0" prefHeight="46.0" prefWidth="66.0" text="Type :" textFill="#ffe2e2">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="52.0" layoutY="300.0" prefHeight="46.0" prefWidth="66.0" text="Price :">
+      <Label layoutX="52.0" layoutY="300.0" prefHeight="46.0" prefWidth="66.0" text="Price :" textFill="#ffe2e2">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="IdLabel" layoutX="134.0" layoutY="117.0" prefHeight="38.0" prefWidth="194.0" />
+      <Label fx:id="IdLabel" layoutX="134.0" layoutY="117.0" prefHeight="38.0" prefWidth="194.0" textFill="#ffe2e2" />
       <ComboBox fx:id="Typecmb" layoutX="134.0" layoutY="249.0" prefHeight="32.0" prefWidth="194.0" />
       <TextField fx:id="NameField" layoutX="134.0" layoutY="182.0" prefHeight="38.0" prefWidth="194.0" />
       <TextField fx:id="PriceField" layoutX="134.0" layoutY="307.0" prefHeight="38.0" prefWidth="194.0" />
-      <Button layoutX="441.0" layoutY="397.0" mnemonicParsing="false" onAction="#Save" prefHeight="46.0" prefWidth="117.0" text="Save Changes">
+      <Button layoutX="441.0" layoutY="397.0" mnemonicParsing="false" onAction="#Save" prefHeight="46.0" prefWidth="117.0" style="-fx-background-color: #40ff50;" text="Save Changes">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="46.0" layoutY="397.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="46.0" prefWidth="118.0" text="Back">
+      <Button layoutX="46.0" layoutY="397.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="46.0" prefWidth="118.0" style="-fx-background-color: #8b0000;" text="Back" textFill="#f2f4f4">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font></Button>
       <Label fx:id="labelerr" layoutX="63.0" layoutY="360.0" prefHeight="32.0" prefWidth="486.0" textFill="#ef0606">
          <font>

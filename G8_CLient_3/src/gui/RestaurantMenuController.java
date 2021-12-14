@@ -52,6 +52,9 @@ public class RestaurantMenuController extends Application implements Initializab
 	
 	@FXML
 	private Label labelsel;
+	
+	@FXML
+	private Label labelerr;
 
 	@FXML
 	void AddItem(ActionEvent event) throws Exception {
@@ -73,7 +76,7 @@ public class RestaurantMenuController extends Application implements Initializab
 	@FXML
 	void EditItem(ActionEvent event) throws Exception {
 		if(labelsel.getText().isEmpty())
-			labelsel.setText("You have to choose an item to edit");
+			labelerr.setText("You have to choose an item to edit");
 		else {
 		((Node) event.getSource()).getScene().getWindow().hide();
 		EditItemController edit = new EditItemController();
@@ -85,6 +88,7 @@ public class RestaurantMenuController extends Application implements Initializab
 	@FXML
 	void GetSeletedItem(MouseEvent event) {
 		Item item=ItemsTable.getSelectionModel().getSelectedItem();
+		labelerr.setText("");
         labelsel.setText("Item ID: "+item.getId()+",Item Name: "+item.getName()+",Item Type: "+item.getType()+",Item Price: "+item.getPrice());
         id=item.getId();
         name=item.getName();
@@ -94,7 +98,7 @@ public class RestaurantMenuController extends Application implements Initializab
 	@FXML
 	void RemoveItem(ActionEvent event) {
 		if(labelsel.getText().isEmpty())
-			labelsel.setText("You have to choose an item to edit");
+			labelerr.setText("You have to choose an item to edit");
 		else {
 			ConnectFormController.chat.accept(new Request("remove item from menu	"+SupplierHSController.resturantID,new Item(id,name,type,price)));
 			ConnectFormController.chat.accept(new Request("show items in restaurant",SupplierHSController.resturantID));

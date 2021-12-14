@@ -31,25 +31,25 @@
       </TableView>
       <Button layoutX="891.0" layoutY="143.0" mnemonicParsing="false" onAction="#AddItem" prefHeight="42.0" prefWidth="162.0" style="-fx-background-color: #50ff40;" text="Add New Item">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Button>
       <Button layoutX="890.0" layoutY="288.0" mnemonicParsing="false" onAction="#EditItem" prefHeight="42.0" prefWidth="162.0" style="-fx-background-color: #F0E68C;" text="Edit Selected">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Button layoutX="119.0" layoutY="565.0" mnemonicParsing="false" onAction="#BackBtn" prefHeight="42.0" prefWidth="99.0" style="-fx-background-color: #8B0000;" text="Back" textFill="#f4f4f4">
+      <Button layoutX="119.0" layoutY="565.0" mnemonicParsing="false" onAction="#BackBtn" prefHeight="42.0" prefWidth="99.0" style="-fx-background-color: #8B0000;" text="Back" textFill="#f2f4f4">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Button layoutX="890.0" layoutY="434.0" mnemonicParsing="false" onAction="#RemoveItem" prefHeight="42.0" prefWidth="162.0" style="-fx-background-color: #ff1245;" text="Remove Selected">
          <font>
-            <Font size="17.0" />
+            <Font name="System Bold" size="17.0" />
          </font>
       </Button>
-      <Label fx:id="labelsel" layoutX="100.0" layoutY="511.0" prefHeight="27.0" prefWidth="702.0" textFill="#ff2626">
+      <Label fx:id="labelerr" layoutX="100.0" layoutY="511.0" prefHeight="27.0" prefWidth="702.0" textFill="#ff2626">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -59,5 +59,10 @@
             <Image url="@../bitemeimg/logobiteme.jpg" />
          </image>
       </ImageView>
+      <Label fx:id="labelsel" layoutX="100.0" layoutY="511.0" prefHeight="30.0" prefWidth="702.0" textFill="#f2f4f4">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
