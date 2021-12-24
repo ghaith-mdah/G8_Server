@@ -1,5 +1,5 @@
 package gui;
-
+//ipad comment
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -46,7 +46,7 @@ public class BMScreenController extends Application implements Initializable{
     private Button neworder;
 
     @FXML
-    private Button ConfirmEmp;
+    private Button ConfimEmp;
 
     @FXML
     void EditUser(ActionEvent event) {
